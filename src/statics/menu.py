@@ -11,4 +11,5 @@ def display_menu():
     print("\n💖 Welcome to PyLove 💖")
     print("1️⃣ Translate a Love Message")
     print("2️⃣ Get a Random Lovely Name")
-    print("3️⃣ Exit")
+    print("3️⃣ Generate a Love Letter")
+    print("4️⃣ Exit")

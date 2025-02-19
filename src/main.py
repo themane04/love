@@ -1,6 +1,7 @@
 import sys
 from src.scripts.translate_love_language import main as translate_love_language
 from src.scripts.names_list import main as random_love_name
+from src.scripts.generate_love_letter import main as generate_love_letter
 from src.statics.menu import clear_console, display_menu
 
 
@@ -17,11 +18,12 @@ def main():
         elif choice == "2":
             random_love_name()
         elif choice == "3":
+            generate_love_letter()
+        elif choice == "4":
             print("Goodbye! 💕")
             sys.exit(0)
-        elif choice == "" or choice.isspace() or choice.isalpha() or int(choice) not in range(1, 4):
-            print("❌ Please enter a valid option.")
         else:
+            print("❌ Invalid choice. Please enter a valid option.")
             input("\nPress Enter to continue...")
 
 
