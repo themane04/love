@@ -4,6 +4,10 @@ from src.statics.lovely_names import LOVELY_NAMES
 
 
 class LoveNameGenerator:
+    """
+    A generator class that provides random lovely names.
+    """
+
     def __init__(self):
         self.lovely_names = LOVELY_NAMES
 

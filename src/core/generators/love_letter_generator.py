@@ -4,7 +4,9 @@ from src.statics.love_letter_templates import LOVE_LETTER_TEMPLATES
 
 class LoveLetterGenerator:
     def __init__(self):
-        """ Initializes the love letter generator with predefined templates. """
+        """
+        Initializes the love letter generator with predefined templates.
+        """
         self.templates = LOVE_LETTER_TEMPLATES
 
     def generate_love_letter(self, recipient_name, sender_name, mood="sweet"):

@@ -2,7 +2,7 @@ import sys
 from src.scripts.translate_love_language import main as translate_love_language
 from src.scripts.names_list import main as random_love_name
 from src.scripts.generate_love_letter import main as generate_love_letter
-from src.statics.menu import clear_console, display_menu
+from src.statics.menu import display_menu
 from src.scripts.text_to_audio_message import main as text_to_audio_message
 
 
@@ -11,7 +11,6 @@ def main():
     Main function that handles user input and runs selected scripts.
     """
     while True:
-        clear_console()
         display_menu()
 
         choice = input("\nEnter your choice: ")
