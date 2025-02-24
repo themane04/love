@@ -7,11 +7,12 @@ class LoveLetterGenerator:
         """ Initializes the love letter generator with predefined templates. """
         self.templates = LOVE_LETTER_TEMPLATES
 
-    def generate_love_letter(self, name, mood="sweet"):
+    def generate_love_letter(self, recipient_name, sender_name, mood="sweet"):
         """
         Generates a love letter with the given name and mood.
 
-        :param name: The recipient's name.
+        :param recipient_name: The recipient's name.
+        :param sender_name: The sender's name.
         :param mood: The style of the letter (sweet, passionate, poetic).
         :return: A formatted love letter.
         """
@@ -19,7 +20,7 @@ class LoveLetterGenerator:
             return "Invalid mood. Please choose 'sweet', 'passionate', or 'poetic'."
 
         template = random.choice(self.templates[mood])
-        return template.format(name=name)
+        return template.format(name=recipient_name, sender=sender_name)
 
     def save_to_file(self, letter, filename="love_letter.txt"):
         """

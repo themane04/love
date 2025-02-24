@@ -4,8 +4,9 @@ from src.core.generators.love_letter_generator import LoveLetterGenerator
 def main():
     print("💌 Welcome to the Love Letter Generator! 💕")
 
-    name = input("Enter your partner's name: ").strip()
-    if not name:
+    recipient_name = input("Enter the recipient's name: ").strip()
+    sender_name = input("Enter your name: ").strip()
+    if not recipient_name or not sender_name:
         print("❌ Name cannot be empty!")
         return
 
@@ -19,12 +20,12 @@ def main():
     mood = mood_map.get(mood_choice, "sweet")
 
     generator = LoveLetterGenerator()
-    love_letter = generator.generate_love_letter(name, mood)
+    love_letter = generator.generate_love_letter(recipient_name, sender_name, mood)
 
     print("\n💌 Your Love Letter:\n")
     print(love_letter)
 
     save = input("\nDo you want to save this letter? (y/n): ").strip().lower()
     if save == "y":
-        filename = f"love_letter_for_{name.replace(' ', '_').lower()}.txt"
+        filename = f"love_letter_for_{recipient_name.replace(' ', '_').lower()}.txt"
         generator.save_to_file(love_letter, filename)
