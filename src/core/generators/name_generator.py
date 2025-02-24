@@ -1,6 +1,6 @@
 import random
 
-from src.statics.lovely_names import LOVELY_NAMES
+from src.statics.names import LOVELY_NAMES
 
 
 class LoveNameGenerator:

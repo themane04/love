@@ -1,4 +1,4 @@
-from src.core.generators.love_letter_generator import LoveLetterGenerator
+from src.core.generators.letter_generator import LoveLetterGenerator
 
 
 def main():

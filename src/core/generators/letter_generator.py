@@ -1,5 +1,5 @@
 import random
-from src.statics.love_letter_templates import LOVE_LETTER_TEMPLATES
+from src.statics.letter_templates import LOVE_LETTER_TEMPLATES
 
 
 class LoveLetterGenerator:

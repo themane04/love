@@ -1,3 +1,4 @@
+from datetime import datetime
 import os
 import time
 
@@ -6,10 +7,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+VOICE_MESSAGES_DIR = os.path.join("data", "voice_messages")
 
-def generate_voice_message(text, filename="love_note.mp3"):
+os.makedirs(VOICE_MESSAGES_DIR, exist_ok=True)
+
+
+def generate_voice_message(text):
     """
-    Converts a love message into speech using ElevenLabs API.
+    Converts a love message into speech using ElevenLabs API
+    and saves it to the data/voice_messages directory.
     """
 
     url = f"{os.getenv('ELEVENLABS_URL')}{os.getenv('ELEVENLABS_VOICE_ID')}"
@@ -30,14 +36,20 @@ def generate_voice_message(text, filename="love_note.mp3"):
     response = requests.post(url, json=data, headers=headers)
 
     if response.status_code == 200:
-        with open(filename, "wb") as f:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"love_note_{timestamp}.mp3"
+        file_path = os.path.join(VOICE_MESSAGES_DIR, filename)
+
+        with open(file_path, "wb") as f:
             f.write(response.content)
 
         print("🕐 File is being saved... Please wait.")
 
-        while not os.path.exists(filename):
+        while not os.path.exists(file_path):
             time.sleep(1)
 
-        print(f"✅ Love note saved as {filename}!")
+        print(f"✅ Love note saved at: {file_path}")
+        return file_path
     else:
         print(f"❌ Error: {response.json()}")
+        return None
