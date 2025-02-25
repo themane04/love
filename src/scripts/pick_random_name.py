@@ -1,4 +1,4 @@
-from src.core.generators.name_generator import LoveNameGenerator
+from src.core.generators.a_name_generator import LoveNameGenerator
 
 
 def main():
